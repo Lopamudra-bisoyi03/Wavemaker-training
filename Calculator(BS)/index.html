@@ -1,0 +1,103 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="box">
+                    <div class="box-header d-flex justify-content-between align-items-center">
+                        <span>Calculator</span>
+                        <div>
+                            <button class="btn btn-link p-0" aria-label="Minimize"><span>&minus;</span></button>
+                            <button class="btn btn-link p-0" aria-label="Tabs"><span>&#9633;</span></button>
+                            <button class="btn btn-link p-0" aria-label="Close"><span>&times;</span></button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                </div>
+                <div class="card">
+                    <div class="card-header p-1">
+                        <ul class="nav nav-pills card-header-pills">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">View</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Edit</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Help</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <input type="text" class="form-control text-right" id="display" readonly="" value="1+2+3+4+">
+                            <input type="text" class="form-control text-right-add" id="display" readonly="" value="5">
+                        </div>
+                        
+                        <div class="btns">
+                        <div class="row numbers justify-content-center">
+                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">MC</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">MR</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">MS</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">M+</button></div>
+                            <div class="col-md-2 p-1"><button type="button" class="btn btn-secondary w-100">M-</button></div>
+                        </div>
+                        <div class="row numbers justify-content-center">
+                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">←</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">CE</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">C</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">±</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">√</button></div>
+                        </div>
+                        <div class="row numbers justify-content-center">
+                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">7</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">8</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">9</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">/</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">%</button></div>
+                        </div>
+                        <div class="row numbers justify-content-center">
+                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">4</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">5</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">6</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">*</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">1/x</button></div>
+                        </div>
+
+                        <div class="row numbers justify-content-center">
+                           
+                            <div class="col-md-8">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-3 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100 ">1</button></div>
+                                    <div class="col-md-3 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100 ">2</button></div>
+                                    <div class="col-md-3 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100 ">3</button></div>
+                                    <div class="col-md-3 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100 ">-</button></div>
+                                    <div class="col-md-6 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100 ">0</button></div>
+                                    <div class="col-md-3 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100 ">.</button></div>
+                                    <div class="col-md-3 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100 ">+</button></div>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-12 p-1">
+                                <div class="col h-100 p-0"><button type="button" class="btn btn-secondary w-100 h-100">=</button></div>
+                            
+                            </div>
+                           
+                        </div>
+
+                        <div class="col-md-2 numbers">
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body></html>

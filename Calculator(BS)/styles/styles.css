@@ -1,0 +1,32 @@
+.btn {
+    padding: .375rem ;
+}
+
+.nav-link {
+    color: black;
+}
+
+.card-body {
+    background-color: rgba(146, 187, 210, 0.81);
+}
+
+.form-group {
+    position: relative;
+    height: 100px;
+}
+
+#display {
+    height: 50%; 
+}
+
+.text-right-add {
+    position: absolute;
+    bottom: 10px;
+    border: none; 
+    font-size: 2rem;  
+    text-align: -webkit-right;
+}
+
+.form-control {
+   background-color: #f1fbfc; 
+}
