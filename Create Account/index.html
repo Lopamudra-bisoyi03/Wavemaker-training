@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+
+</head>
+<body>
+    
+    <div class="container">
+        <div class="box">
+             <h2 class="heading">Create Account</h2>
+             <form>
+                <div class="form">
+                  <div class="labelinline">
+                    <div class="labelsubinline">
+                        <label for="first-name">First name *</label><br>
+                        <input type="text" id="first-name" placeholder="Enter your first name" required>
+                    </div>
+                    <div class="labelsubinline2">
+                        <label for="last-name">Last name </label><br>
+                        <input type="text" id="last-name" placeholder="Enter your last name" required>
+                    </div>
+                  </div> <br>
+    
+                    <div class="labelinline">
+                        <div class="labelsubinline">
+                        <label for="email">Email *</label><br>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+                    </div> <br>
+                  <div class="labelinline">
+                    <div class="labelsubinline">
+                        <label for="password">Password *</label><br>
+                        <input type="password" id="password" placeholder="Enter your password" required>
+                    </div>
+                    <div class="labelsubinline2">
+                        <label for="confirm-password">Confirm Password *</label><br>
+                        <input type="password" id="confirm-password" placeholder="Enter your password again" required>
+                    </div>
+                  </div> <br>
+                
+                  <div class="labelinline">
+                    <div class="labelsubinline">
+                        <label>Gender</label><br>
+                        <input type="radio" id="male" name="gender" value="male">
+                        <label for="male" class="gender-option">Male</label>
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female" class="gender-option">Female</label>
+                    </div>
+                    <div class="labelsubinline2">
+                        <label>Hobbies</label><br>
+                        <div class="options">
+                        <input type="checkbox" id="music" name="hobbies" value="music">
+                        <label for="music" class="hobby-option">Music</label>
+                        <input type="checkbox" id="sports" name="hobbies" value="sports">
+                        <label for="music" class="hobby-option">Sports</label>
+                        <input type="checkbox" id="travel" name="hobbies" value="travel">
+                        <label for="music" class="hobby-option">Travel</label>
+                        <input type="checkbox" id="movies" name="hobbies" value="movies">
+                        <label for="music" class="hobby-option">Movies</label>
+                        </div>
+                    </div>
+                  </div> <br>
+                  <div class="labelinline">
+                    <div class="labelsubinline">
+                        <label for="source-income">Source of Income</label><br>
+                        <select id="source-income">
+                            <option value="employed">Employed</option>
+                            <option value="self-employed">Self-employed</option>
+                            <option value="unemployed">Unemployed</option>
+                        </select>
+                    </div>
+                    <div class="labelsubinline2">
+                        <label for="income">Income</label><br>
+                        <input type="range" id="income" name="income" min="0" max="100" value="20" oninput="updateIncomeValue()">
+                        <span id="income-value">20K</span>
+                    </div>
+                  </div> <br>
+                  <div class="labelinline">
+                    <div class="labelsubinline">
+                        <label for="profile-picture">Upload Profile Picture</label><br>
+                        <input type="file" id="profile-picture">
+                    </div>
+                    <div class="labelsubinline2">
+                        <label for="age">Age</label><br>
+                        <input type="number" id="age" value="18">
+                    </div>
+                  </div> <br>
+                    <div class="labelinline">
+                        <div class="labelsubinline">
+                        <label for="bio">Bio</label> <br>
+                        <textarea id="bio" rows="4"></textarea>
+                    </div>
+                </div>
+                </div>
+                <div class="button-section">
+                <input type="submit" value="Create">
+                </div>
+        </div> 
+    </form> 
+    </div>
+    </div>
+</body>
+</html>
