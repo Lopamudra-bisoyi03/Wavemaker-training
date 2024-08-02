@@ -36,56 +36,56 @@
                     </div>
                     <div class="card-body">
                         <div class="form-group">
-                            <input type="text" class="form-control text-right" id="display" readonly="" value="1+2+3+4+">
-                            <input type="text" class="form-control text-right-add" id="display" readonly="" value="5">
+                            <input type="text" class="form-control text-right" id="expressionDisplay" readonly="" value="">
+                            <input type="text" class="form-control text-right-add" id="resultDisplay" readonly="" value="">
                         </div>
                         
                         <div class="btns">
                         <div class="row numbers justify-content-center">
-                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">MC</button></div>
-                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">MR</button></div>
-                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">MS</button></div>
-                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">M+</button></div>
-                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">M-</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button id="btnMC" type="button" class="btn btn-secondary w-100">MC</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button id="btnMR" type="button" class="btn btn-secondary w-100">MR</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button id="btnMs" type="button" class="btn btn-secondary w-100">MS</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button id="btnMPlus" type="button" class="btn btn-secondary w-100">M+</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button id="btnMMinus" type="button" class="btn btn-secondary w-100">M-</button></div>
                         </div>
                         <div class="row numbers justify-content-center">
-                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">←</button></div>
-                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">CE</button></div>
-                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">C</button></div>
-                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">±</button></div>
-                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">√</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button id="btnCursor" type="button" class="btn btn-secondary w-100">←</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button id="btnBackspace" type="button" class="btn btn-secondary w-100">CE</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button id="btnC" type="button" class="btn btn-secondary w-100">C</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button id="btnPlusMinus" type="button" class="btn btn-secondary w-100">±</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button id="btnSqrt" type="button" class="btn btn-secondary w-100">√</button></div>
                         </div>
                         <div class="row numbers justify-content-center">
-                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">7</button></div>
-                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">8</button></div>
-                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">9</button></div>
-                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">/</button></div>
-                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">%</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button id="btn7" type="button" class="btn btn-secondary w-100">7</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button id="btn8" type="button" class="btn btn-secondary w-100">8</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button id="btn9" type="button" class="btn btn-secondary w-100">9</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button id="btnDivide" type="button" class="btn btn-secondary w-100">/</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button id="btnPercent" type="button" class="btn btn-secondary w-100">%</button></div>
                         </div>
                         <div class="row numbers justify-content-center">
-                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">4</button></div>
-                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">5</button></div>
-                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">6</button></div>
-                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">*</button></div>
-                            <div class="col-md-2 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100">1/x</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button id="btn4" type="button" class="btn btn-secondary w-100">4</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button id="btn5" type="button" class="btn btn-secondary w-100">5</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button id="btn6" type="button" class="btn btn-secondary w-100">6</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button id="btnMultiply" type="button" class="btn btn-secondary w-100">*</button></div>
+                            <div class="col-md-2 col-sm-12 p-1"><button id="btnReciprocal" type="button" class="btn btn-secondary w-100">1/x</button></div>
                         </div>
 
                         <div class="row numbers justify-content-center">
                            
                             <div class="col-md-8">
                                 <div class="row justify-content-center">
-                                    <div class="col-md-3 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100 ">1</button></div>
-                                    <div class="col-md-3 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100 ">2</button></div>
-                                    <div class="col-md-3 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100 ">3</button></div>
-                                    <div class="col-md-3 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100 ">-</button></div>
-                                    <div class="col-md-6 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100 ">0</button></div>
-                                    <div class="col-md-3 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100 ">.</button></div>
-                                    <div class="col-md-3 col-sm-12 p-1"><button type="button" class="btn btn-secondary w-100 ">+</button></div>
+                                    <div class="col-md-3 col-sm-12 p-1"><button id="btn1" type="button" class="btn btn-secondary w-100 ">1</button></div>
+                                    <div class="col-md-3 col-sm-12 p-1"><button id="btn2" type="button" class="btn btn-secondary w-100 ">2</button></div>
+                                    <div class="col-md-3 col-sm-12 p-1"><button id="btn3" type="button" class="btn btn-secondary w-100 ">3</button></div>
+                                    <div class="col-md-3 col-sm-12 p-1"><button id="btnMinus" type="button" class="btn btn-secondary w-100 ">-</button></div>
+                                    <div class="col-md-6 col-sm-12 p-1"><button id="btn0" type="button" class="btn btn-secondary w-100 ">0</button></div>
+                                    <div class="col-md-3 col-sm-12 p-1"><button id="btnDot" type="button" class="btn btn-secondary w-100 ">.</button></div>
+                                    <div class="col-md-3 col-sm-12 p-1"><button id="btnPlus"type="button" class="btn btn-secondary w-100 ">+</button></div>
                                     
                                 </div>
                             </div>
                             <div class="col-md-2 col-sm-12 p-1">
-                                <div class="col h-100 p-0"><button type="button" class="btn btn-secondary w-100 h-100">=</button></div>
+                                <div class="col h-100 p-0"><button id="btnEquals" type="button" class="btn btn-secondary w-100 h-100">=</button></div>
                             
                             </div>
                            
@@ -100,4 +100,5 @@
         </div>
     </div>
 </div>
+<script src="./calculator.js"></script>
 </body></html>

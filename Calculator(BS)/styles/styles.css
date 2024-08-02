@@ -1,5 +1,6 @@
+
 .btn {
-    padding: .375rem ;
+    padding: .375rem;
 }
 
 .nav-link {
@@ -15,18 +16,29 @@
     height: 100px;
 }
 
-#display {
-    height: 50%; 
+#expressionDisplay {
+    height: 50%;
+    font-size: 20px; 
+    border: none;
+    background-color: #f1fbfc;
 }
 
-.text-right-add {
-    position: absolute;
-    bottom: 10px;
-    border: none; 
-    font-size: 2rem;  
-    text-align: -webkit-right;
+#resultDisplay {
+    font-size: 32px;
+    text-align: right; 
+    background-color: #f1fbfc; 
+}
+
+
+.btn-secondary {
+    border-radius: 0.25rem;
+    font-size: 1.2rem; 
+}
+
+.btn {
+    height: 60px; 
 }
 
 .form-control {
-   background-color: #f1fbfc; 
+    background-color: #f1fbfc;
 }
