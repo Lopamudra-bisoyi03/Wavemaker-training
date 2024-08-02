@@ -26,14 +26,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     updateDisplays(currentInput, resultDisplay.value);
                     break;
                 case '←':
-                        const textInput = document.getElementById('expressionDisplay'); 
-                        const cursorPosition = textInput.selectionStart; 
-                    
-                        if (cursorPosition > 0) {
-                            textInput.setSelectionRange(cursorPosition - 1, cursorPosition - 1);
-                        }
-                        break;
-                        
+                    const cursorPosition = expressionDisplay.selectionStart; 
+                    if (cursorPosition > 0) {
+                        expressionDisplay.setSelectionRange(cursorPosition - 1, cursorPosition - 1);
+                    }
+                    break;
                 case '±':
                     currentInput = (parseFloat(currentInput) * -1).toString();
                     updateDisplays(currentInput, resultDisplay.value);
@@ -67,33 +64,40 @@ document.addEventListener('DOMContentLoaded', function() {
                     currentInput = (parseFloat(currentInput) / 100).toString();
                     updateDisplays(currentInput, resultDisplay.value);
                     break;
-                    case 'MC':
-                        memory = 0;
-                        console.log('Memory cleared:', memory); 
+                case 'MC':
+                    memory = 0;
+                    console.log('Memory cleared:', memory); 
+                    break;
+                case 'MR':
+                    currentInput = memory.toString();
+                    updateDisplays(currentInput, resultDisplay.value);
+                    console.log('Memory recalled:', memory); 
+                    break;
+                case 'MS':
+                    memory = parseFloat(currentInput);
+                    currentInput = ''; 
+                    updateDisplays('', '');
+                    console.log('Memory stored:', memory); 
+                    break;
+                case 'M+':
+                        if (currentInput !== '') {
+                            memory += parseFloat(currentInput);
+                        }
+                        currentInput = memory.toString();  
+                        updateDisplays(null,currentInput); 
+                        console.log('Memory added:', memory);
                         break;
-                    case 'MR':
-                        currentInput = memory.toString();
-                        updateDisplays(currentInput, resultDisplay.value);
-                        console.log('Memory recalled:', memory); 
-                        break;
-                    case 'MS':
-                        memory = parseFloat(currentInput);
-                        currentInput = '';
-                        updateDisplays = ('', '');
-                        console.log('Memory stored:', memory); 
-                        break;
-                    case 'M+':
-                        memory += parseFloat(currentInput);
-                        console.log('Memory added:', memory); 
-                        break;
-                    case 'M-':
+                case 'M-':
+                    if (currentInput !== '') {
                         memory -= parseFloat(currentInput);
-                        console.log('Memory subtracted:', memory); 
-                        break;
+                    }
+                    currentInput = memory.toString();  
+                    updateDisplays(null,currentInput); 
+                    console.log('Memory subtracted:', memory);
+                    break;
             }
         }
     }
-
 
     document.querySelectorAll('button').forEach(button => {
         button.addEventListener('click', handleButtonClick);
