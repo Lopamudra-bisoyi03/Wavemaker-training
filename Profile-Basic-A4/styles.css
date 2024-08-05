@@ -58,20 +58,10 @@
 
   .profile-card .social-links {
     display: flex;
-    flex-wrap: wrap; /* Allows wrapping on smaller screens */
     justify-content: center;
     gap: 10px;
     margin-top: 15px;
-  }
-  
-  .profile-card .social-links a {
-    display: flex;
-    align-items: center;
-    border-radius: 20px;
-    padding: 8px 16px;
-    color: #fff; /* Default text color */
     font-weight: bold;
-    text-decoration: none;
   }
   
   .profile-card .btn-outline-primary, .profile-card .btn-outline-dark {
