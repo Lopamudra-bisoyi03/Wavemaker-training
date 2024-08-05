@@ -1,0 +1,226 @@
+.container {
+    width:600px;
+    margin:0 auto;
+    border:1px solid #ccc;
+    border: 30px solid rgb(28, 100, 112);
+    background: rgb(28, 100, 112);
+    
+    }
+    
+    .box {
+        border-radius: 20px;
+        background: rgb(255, 255, 255);
+    
+    }
+    
+    form {
+        width: 100;
+    }
+    
+    .form {
+        width: 100%;
+        flex: 1;
+        padding: 30px 0 30px 10px;
+        border-bottom: 1.3px solid #d1c2c2;
+        border-top: 1.3px solid #d1c2c2;
+        box-sizing: border-box;
+    }
+    
+    .heading {
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        text-align: center;
+        background-color: #f2f2f2;
+        width: 100%;
+        padding: 20px 0;
+        margin: 0;
+    }
+    
+    .form .labelinline {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: rgb(48 159 128);
+        font-weight: bold;
+        box-sizing: border-box;
+        width: 100%;
+        margin-bottom: 1px;
+    }
+    
+    input[type="file"] {
+        width: auto;
+        color: #504a4a;
+    }
+    
+    input[type="number"] {
+        width: auto;
+        margin-top: 2px;
+    }
+    
+    
+    
+    .labelsubinline, .labelsubinline2 {
+        width: 50%; 
+        box-sizing: border-box; 
+        margin-left: 2px;
+        margin-bottom: 1px;
+    }
+    
+    .gender-option {
+        color: #504a4a;
+        font-weight: lighter;
+        font-size: small;
+    }
+    
+    .hobby-option {
+        color: #504a4a; 
+        font-weight: lighter;
+        font-size: small;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    
+    textarea {
+        width: 90%;
+    }
+    
+    input[type="email"] {
+        width: 190%;
+        margin-top: 1px;
+    }
+    
+    input[type="password"] {
+        width: 90%;
+    }
+    
+    input[type="file"] {
+        width: auto;
+    }
+    
+    textarea {
+        margin-top: 2px;
+        width: 193%; 
+        box-sizing: border-box; 
+    }
+    
+    #source-income {
+        width: 96%;
+    }
+    select:not(:-internal-list-box) {
+        width: 90%;
+    }
+    
+    .button-section {
+        width: 100%;
+        height: 80px;
+        background-color: #f2f2f2;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+    
+    input[type="submit"] {
+        color: white;
+        background-color: rgb(48 159 128);
+        margin: 20px 25px 20px 20px;
+        float: right;
+        padding: 10px;
+        width: 70px;
+        border: 0;
+        border-radius: 5px;
+        
+    }
+    
+    input[type="range"] {
+        width: 75%;
+    }
+    
+    .form .labelinline2 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    span {
+        color: white;
+        background-color: rgb(48 159 128);
+        border-radius: 3px;
+        padding: 5px;
+    }
+    
+    /* Media Queries for Responsiveness */
+    @media (max-width: 768px) {
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+    
+        .form .labelinline, .form .labelinline2 {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    
+        .labelsubinline, .labelsubinline2 {
+            width: 100%;
+            margin-bottom: 1px;
+        }
+    
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        textarea,
+        input[type="email"],
+        textarea {
+            width: 96%;
+        }
+    
+        input[type="bio"],
+        textarea {
+            width: 97%;
+        }
+    
+    
+        input[type="range"] {
+            width: 85%;
+        }
+    
+        input[type="submit"] {
+            width: auto;
+            float: none;
+            align-self: center;
+            margin: 10px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .container {
+            border-width: 15px;
+        }
+    
+        .heading {
+            padding: 10px 0;
+        }
+    
+        .form {
+            padding: 20px;
+        }
+    
+        input[type="submit"] {
+            padding: 10px;
+            width: 100%;
+        }
+        input [type="text"] {
+            width: 80%;
+        }
+        input[type="number"] {
+            width: 93%;
+            margin-top: 2px;
+        }
+    
+        input[type="range"] {
+            width: 77%;
+        }
+    }
