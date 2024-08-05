@@ -20,7 +20,7 @@ form {
 .form {
     width: 100%;
     flex: 1;
-    padding: 30px 0 30px 20px;
+    padding: 30px 0 30px 10px;
     border-bottom: 1.3px solid #d1c2c2;
     border-top: 1.3px solid #d1c2c2;
     box-sizing: border-box;
@@ -56,6 +56,8 @@ input[type="number"] {
     width: auto;
     margin-top: 2px;
 }
+
+
 
 .labelsubinline, .labelsubinline2 {
     width: 50%; 
@@ -105,7 +107,7 @@ textarea {
 }
 
 #source-income {
-    width: 93%;
+    width: 96%;
 }
 select:not(:-internal-list-box) {
     width: 90%;
@@ -175,16 +177,21 @@ span {
         width: 96%;
     }
 
+    input[type="bio"],
+    textarea {
+        width: 97%;
+    }
+
 
     input[type="range"] {
-        width: 100%;
+        width: 85%;
     }
 
     input[type="submit"] {
         width: auto;
         float: none;
         align-self: center;
-        margin: 20px auto;
+        margin: 10px;
     }
 }
 
