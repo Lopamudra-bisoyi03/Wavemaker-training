@@ -26,10 +26,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     updateDisplays(currentInput, resultDisplay.value);
                     break;
                 case '←':
-                    const cursorPosition = expressionDisplay.selectionStart; 
-                    if (cursorPosition > 0) {
-                        expressionDisplay.setSelectionRange(cursorPosition - 1, cursorPosition - 1);
-                    }
+                    currentInput = currentInput.slice(0, -1);
+                    updateDisplays(currentInput, resultDisplay.value);
                     break;
                 case '±':
                     currentInput = (parseFloat(currentInput) * -1).toString();
