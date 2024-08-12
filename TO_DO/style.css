@@ -1,0 +1,508 @@
+:root {
+    --dark: #374151;
+    --darker: #1F2937;
+    --darkest: #111827;
+    --grey: #6B7280;
+    --pink: #EC4899;
+    --purple: #8B5CF6;
+    --light: #EEE;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Fira Sans", sans-serif;
+}
+
+body {
+    font-size: 1.125rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: #FFF;
+    background-color: var(--dark);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+    padding: 2rem;
+    max-width: 850px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--light);
+    margin-bottom: 3rem;
+    text-decoration: underline;
+    text-align: center;
+}
+
+#export-import-section {
+    margin-top: 10px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+#new-task-form {
+    display: flex;
+}
+
+input,
+button,
+select {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+#import-file {
+    display: none;
+}
+#new-task-input,
+#new-task-due,
+#edit-task-input,
+#edit-task-due {
+    border: 3px solid #807987;
+    border-radius: 15px;
+    padding: 1rem;
+    color: var(--light);
+    font-size: 1.25rem;
+    transition: background-color 0.3s, color 0.3s;
+    text-align: center;
+    margin: 0 0.5rem;
+}
+
+#new-task-input::placeholder {
+    color: var(--grey);
+}
+
+#new-task-submit {
+    color: var(--pink);
+    font-size: 1.25rem;
+    font-weight: 700;
+    background-image: linear-gradient(to right, var(--pink), var(--purple));
+    -webkit-background-clip: text;
+    -moz-background-clip: text; /* Add vendor prefix for Firefox */
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+    transition: 0.4s;
+    border: 3px solid #807987;
+    border-radius: 15px;
+}
+
+#new-task-submit:hover {
+    opacity: 0.8;
+}
+
+#new-task-submit:active {
+    opacity: 0.6;
+}
+
+#new-task-priority {
+    color: var(--pink);
+    font-size: 1.25rem;
+    font-weight: 700;
+    background-image: linear-gradient(to right, var(--pink), var(--purple));
+    -webkit-background-clip: text;
+    -moz-background-clip: text; /* Add vendor prefix for Firefox */
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+    border: 3px solid #807987;
+    border-radius: 15px;
+    transition: 0.4s;
+    text-align: center;
+}
+
+#new-task-priority:hover {
+    opacity: 0.8;
+}
+
+#new-task-priority:active {
+    opacity: 0.6;
+}
+
+main {
+    flex: 1;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.task-list {
+    padding: 1rem;
+}
+
+.task-list h2 {
+    font-size: 30px;
+    font-weight: 300;
+    color: #0f1012;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+#tasks .task {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--darkest);
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    cursor: grab;
+    transition: background-color 0.3s;
+}
+
+.task.dragging {
+    background-color: var(--darker);
+}
+
+.task.drag-over {
+    border: 2px dashed var(--pink);
+}
+
+.task.dragging {
+    opacity: 0.5;
+}
+
+.task .content .text {
+    color: var(--light);
+    font-size: 1.125rem;
+    width: 100%;
+    display: block;
+    transition: color 0.3s;
+}
+
+.task .actions {
+    display: flex;
+    margin: 0 -0.5rem;
+}
+
+.task .actions button {
+    cursor: pointer;
+    margin: 0 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: opacity 0.3s;
+}
+
+.task .actions .add-subtask {
+    background-image: linear-gradient(to right, var(--pink), var(--purple));
+    -webkit-background-clip: text;
+    -moz-background-clip: text; 
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.task .actions .edit {
+    background-image: linear-gradient(to right, var(--pink), var(--purple));
+    -webkit-background-clip: text;
+    -moz-background-clip: text; /* Add vendor prefix for Firefox */
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.task .actions .delete {
+    color: crimson;
+}
+
+/* Modal styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: var(--darker);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid var(--grey);
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    color: var(--light);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.close-button {
+    color: var(--grey);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover {
+    color: var(--light);
+}
+
+.modal-content input,
+.modal-content select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 8px;
+    border-radius: 5px;
+    border: 1px solid var(--grey);
+    background-color: #4a566f;
+    color: var(--light);
+    font-size: 1rem;
+}
+
+.modal-content button {
+    background-color: var(--pink);
+    color: var(--light);
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+    background-color: var(--purple);
+}
+
+#theme-toggle {
+    background-color: var(--pink);
+    color: var(--light);
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#theme-toggle:hover {
+    background-color: var(--purple);
+    color: var(--dark);
+}
+
+/* Light Theme Colors */
+body.light-theme {
+    background-color: #bfdaff85;
+}
+
+body.light-theme header h1 {
+    color: #0b182b;
+}
+
+body.light-theme #new-task-input,
+body.light-theme #new-task-due {
+    color: #261f1f;
+    border: 3px solid #807987;
+}
+
+body.light-theme #edit-task-input,
+body.light-theme #edit-task-due {
+    color: #f6eaea;
+    background-color: #859dbcc2;
+    border: 3px solid black ;
+}
+
+body.light-theme #new-task-submit {
+    background-color: #FF6F91;
+    color: #FFFFFF;
+}
+
+body.light-theme #search-button {
+    background-color: var(--pink);
+    color: #FFFFFF;
+}
+
+body.light-theme #export-button,
+body.light-theme #import-button {
+    background-color: var(--pink);
+    color: #FFFFFF;
+}
+
+body.light-theme #search-button:hover,
+body.light-theme #export-button:hover,
+body.light-theme #import-button:hover {
+    background-color: #2C73D2;
+}
+
+body.light-theme .modal-content {
+    background-color: #26486f;
+    color: #100202;
+    text-align: center;
+}
+
+
+body.light-theme .task {
+    background-color: #FFFFFF;
+    border: 1px solid #D0D7E3;
+}
+
+#search-section {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+#search-input {
+    flex: 1;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid var(--grey);
+    background-color: var(--darker);
+    color: var(--light);
+    font-size: 1rem;
+}
+
+#search-button {
+    background-color: var(--pink);
+    color: var(--light);
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#search-button:hover {
+    background-color: var(--purple);
+    color: var(--dark);
+}
+
+#sort-options {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid var(--grey);
+    background-color: var(--darkest);
+    color: var(--light);
+    font-size: 1rem;
+}
+
+#tasks {
+    margin-top: 20px;
+}
+
+#export-button,
+#import-button {
+    background-color: var(--pink);
+    color: var(--light);
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin-left: 0.5rem;
+}
+
+#export-button:active,
+#import-button:active {
+    opacity: 0.6;
+}
+
+body.light-theme #export-button,
+body.light-theme #import-button {
+    background-color: var(--pink);
+    color: var(--light);
+}
+
+body.light-theme #export-button:hover,
+body.light-theme #import-button:hover {
+    background-color: var(--pink);
+    color: var(--dark);
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 1rem;
+    }
+
+    header {
+        padding: 1rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    #new-task-form {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    #new-task-input,
+    #new-task-priority,
+    #new-task-due,
+    #new-task-submit {
+        width: 90%;
+        margin-bottom: 0.5rem;
+    }
+
+    #tasks {
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #task {
+        width: 90%;
+    }
+
+    .modal-content {
+        width: 90%;
+        max-width: none;
+    }
+
+    #search-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    #search-input {
+        width: 100%;
+        padding: none;
+        margin-bottom: 0.5rem;
+    }
+
+    #search-button {
+        width: calc(100% - 2rem);
+        margin: 0.5rem 0;
+    }
+
+    #export-import-section {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        gap: 0.5rem;
+        margin-top: 1rem;
+    }
+
+    #export-button,
+    #import-button {
+        width: auto;
+        margin: 0;
+    }
+}

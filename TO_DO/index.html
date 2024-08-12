@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO-DO App</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <h1>TO-DO APP</h1>
+        <button id="theme-toggle">Change Theme</button>
+        <form id="new-task-form">
+            <input type="text" name="new-task-input" id="new-task-input" placeholder="Plan Your Day" />
+            <select id="new-task-priority">
+                <option value="" disabled selected>Select Priority</option>
+                <option value="low">Low Priority</option>
+                <option value="medium">Medium Priority</option>
+                <option value="high">High Priority</option>
+            </select>
+            <input type="datetime-local" id="new-task-due" />
+            <input type="submit" id="new-task-submit" value="Add task" />
+        </form>
+    </header>
+    <main>
+        <section class="task-list">
+            <h2>Tasks</h2>
+            <div class="task-controls">
+                <input type="text" id="search-input" placeholder="Search tasks..." />
+                <button id="search-button">Search</button>
+                <select id="sort-options">
+                    <option value="" disabled selected>Sort By</option>
+                    <option value="priority">Sort by Priority</option>
+                    <option value="due-date">Sort by Due Date</option>
+                </select>
+                <div id="export-import-section">
+                    <button id="export-button">Export</button>
+                    <button id="import-button">Import</button>
+                    <input type="file" id="import-file">
+                </div>
+            </div>
+            <div id="tasks">
+            </div>
+        </section>
+    </main>
+
+    <div id="edit-task-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Edit Task</h2>
+            <form id="edit-task-form">
+                <input type="text" id="edit-task-input" placeholder="Edit your task" />
+                <select id="edit-task-priority">
+                    <option value="" disabled selected>Change Priority</option>
+                    <option value="low">Low Priority</option>
+                    <option value="medium">Medium Priority</option>
+                    <option value="high">High Priority</option>
+                </select>
+                <input type="datetime-local" id="edit-task-due" />
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
