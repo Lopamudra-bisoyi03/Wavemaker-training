@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Leave Management System</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      padding: 40px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+    h2 {
+      color: #4a4a4a;
+      margin-bottom: 30px;
+      font-size: 2.5em;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-bottom: 10px;
+      font-size: 1.1em;
+      color: #555;
+      text-align: left;
+      font-weight: 500;
+    }
+    input[type="text"],
+    input[type="password"] {
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 50px;
+      font-size: 1em;
+      transition: border-color 0.3s ease;
+    }
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      outline: none;
+      border-color: #6c63ff;
+      box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
+    }
+    button {
+      background-color: #6c63ff;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 50px;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 500;
+    }
+    button:hover {
+      background-color: #5a52d5;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(108, 99, 255, 0.4);
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h2>Login</h2>
+  <form action="loginCredentials" method="POST">
+    <label for="email">E-Mail:</label>
+    <input type="text" id="email" name="email" required placeholder="Enter your email">
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required placeholder="Enter your password">
+    <button type="submit">Login</button>
+  </form>
+</div>
+</body>
+</html>

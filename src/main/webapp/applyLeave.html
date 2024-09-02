@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Leave - Leave Management System</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary-color: #636af1;
+            --secondary-color: #4f46e5;
+            --background-color: #f3f4f6;
+            --text-color: #1f2937;
+            --card-bg-color: #ffffff;
+            --input-bg-color: #f9fafb;
+            --input-border-color: #d1d5db;
+            --input-focus-color: #a5b4fc;
+            --button-hover-color: #4338ca;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: var(--text-color);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: var(--card-bg-color);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-weight: 600;
+            font-size: 28px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        select,
+        input[type="date"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--input-border-color);
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            background-color: var(--input-bg-color);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        select:focus,
+        input[type="date"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--input-focus-color);
+            box-shadow: 0 0 0 3px rgba(165, 180, 252, 0.5);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: var(--button-hover-color);
+            transform: translateY(-2px);
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Apply for Leave</h1>
+    <form id="leaveRequestForm" action="http://localhost:8088/LeaveManagement/leaveRequest" method="post">
+        <label for="leaveType">Leave Type</label>
+        <select id="leaveType" name="leaveType" required>
+            <option value="">Select leave type</option>
+            <option value="SICK">Sick Leave</option>
+            <option value="PTO">Paid Time Off</option>
+            <option value="VACATION">Vacation</option>
+            <option value="PERSONAL">Personal Leave</option>
+        </select>
+
+        <label for="fromDate">From Date</label>
+        <input type="date" id="fromDate" name="fromDate" required>
+        <div id="fromDateMessage" class="holiday-message"></div>
+
+        <label for="toDate">To Date</label>
+        <input type="date" id="toDate" name="toDate" required>
+        <div id="toDateMessage" class="holiday-message"></div>
+
+        <label for="reason">Reason for Leave</label>
+        <textarea id="reason" name="reason" rows="4" required placeholder="Please provide a brief explanation for your leave request"></textarea>
+
+        <button type="submit">Submit Request</button>
+
+        <div class="button-group">
+            <a href="dashboard.html">← Back to Dashboard</a>
+        </div>
+    </form>
+</div>
+
+<script>
+    // Define bank holidays (in YYYY-MM-DD format)
+    const bankHolidays = [
+        '2025-01-01',
+        '2025-01-26',
+        '2025-03-14',
+        '2024-04-11',
+        '2024-04-14',
+        '2024-04-27',
+        '2024-09-07',
+        '2024-09-16',
+        '2024-10-02',
+        '2024-10-13',
+        '2024-10-31',
+        '2024-12-25',
+    ];
+
+    const today = new Date().toISOString().split('T')[0];
+    const weekends = [0, 6]; // Sunday and Saturday
+
+    function isWeekend(date) {
+        const day = new Date(date).getDay();
+        return weekends.includes(day);
+    }
+
+    function isBankHoliday(date) {
+        return bankHolidays.includes(date);
+    }
+
+    function updateDateValidationMessages() {
+        const fromDate = document.getElementById('fromDate').value;
+        const toDate = document.getElementById('toDate').value;
+
+        document.getElementById('fromDateMessage').textContent = '';
+        document.getElementById('toDateMessage').textContent = '';
+
+        if (fromDate && (isWeekend(fromDate) || isBankHoliday(fromDate))) {
+            document.getElementById('fromDateMessage').textContent = 'Selected date is a weekend or a bank holiday. Please choose another date.';
+        }
+
+        if (toDate && (isWeekend(toDate) || isBankHoliday(toDate))) {
+            document.getElementById('toDateMessage').textContent = 'Selected date is a weekend or bank holiday. Please choose another date.';
+        }
+    }
+
+    function validateDates() {
+        const fromDate = document.getElementById('fromDate').value;
+        const toDate = document.getElementById('toDate').value;
+
+        if (fromDate && toDate) {
+            if (new Date(fromDate) > new Date(toDate)) {
+                alert('To Date must be after From Date.');
+                return false;
+            }
+
+            if (isWeekend(fromDate) || isBankHoliday(fromDate) || isWeekend(toDate) || isBankHoliday(toDate)) {
+                alert('Leave dates cannot be on weekends or bank holidays.');
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    // Set minimum date for date inputs to today
+    document.getElementById('fromDate').min = today;
+    document.getElementById('toDate').min = today;
+
+    // Ensure 'To Date' is not before 'From Date'
+    document.getElementById('fromDate').addEventListener('change', function () {
+        document.getElementById('toDate').min = this.value;
+        updateDateValidationMessages();
+    });
+
+    document.getElementById('toDate').addEventListener('change', updateDateValidationMessages);
+
+    document.getElementById('leaveRequestForm').addEventListener('submit', async (event) => {
+        if (!validateDates()) {
+            event.preventDefault();
+            return;
+        }
+
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const data = Object.fromEntries(formData);
+
+        try {
+            const response = await fetch("http://localhost:8088/LeaveManagement/leaveRequest", {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                window.location.href = 'success.html';
+            } else {
+                console.error('Error submitting leave request:', response.statusText);
+                alert('There was an error submitting your leave request. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('There was an error submitting your leave request. Please try again.');
+        }
+    });
+</script>
+
+</body>
+</html>
